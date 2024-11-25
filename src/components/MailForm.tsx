@@ -12,7 +12,6 @@ import { Checkbox } from './ui/checkbox';
 import { FormField, FormControl, Form, FormItem, FormLabel } from './ui/form';
 import { toast } from '@/hooks/use-toast';
 import { useState } from 'react';
-import Modal from './ui/modal';
 
 const formSchema = z.object({
     email: z.string()
@@ -146,12 +145,12 @@ export default function MailForm() {
                     <p className="text-red-800 text-xs text-center">{showErrorMessages()}</p>
                 </form>
             </Form>
-            <Modal
+            {/*<Modal
                 modalStatus={modalOpen}
                 onClose={() => setModalOpen(false)}
             >
                 <p>Contenido de los términos y condiciones...</p>
-            </Modal>
+            </Modal>*/}
         </div>
     );
 }
