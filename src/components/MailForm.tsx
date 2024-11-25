@@ -21,7 +21,7 @@ const formSchema = z.object({
     text: z.string(),
     approvedNewsletter: z.boolean(),
     approvedTerms: z.boolean()
-                    .refine(val => val, { message: "Debes aceptar los términos y condiciones." }),
+                    .refine((val: boolean) => val, { message: "Debes aceptar los términos y condiciones." }),
 });
 
 type FormValues = z.infer<typeof formSchema>;
