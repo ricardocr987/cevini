@@ -39,7 +39,6 @@ const ProductsSection: React.FC = () => {
                 <p className="text-sm text-gray-500">Peso: {product.peso}kg</p>
                 <p className="text-sm text-gray-500">Unidades por m2: {product.unidadM2}</p>
                 <p className="text-sm text-gray-500">Unidades por pallet: {product.unidadPalet}</p>
-                <p className="text-lg font-bold mt-2">En origen: {product.precioOrigen} €</p>
                 <div 
                   className="bg-green-500 p-2 cursor-pointer mt-2 rounded-md max-w-fit"
                   onClick={() => handleDownloadClick(product)}
@@ -64,20 +63,24 @@ const ProductsSection: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {Object.keys(categories).map((category, index) => (
-            <div
-              key={index}
-              className="bg-gray-200 p-6 rounded-lg shadow-md cursor-pointer hover:bg-gray-300 transition"
-              onClick={() => handleCategoryClick(category)}
-            >
-              <h3 className="text-xl font-bold text-center">{category}</h3>
-            </div>
-          ))}
+        <div className="flex flex-col text-center">
+          <p className="font-bold mb-5">Selecciona una categoría de los productos que ofrecemos</p>
+          <ul className="space-y-4 md:space-y-8 items-center justify-center flex flex-col">
+            {Object.keys(categories).map((category, index) => (
+              <li
+                key={index}
+                className="bg-gradient-to-r from-orange-600 to-orange-500 p-6 rounded-lg shadow-md cursor-pointer hover:orange-200 transition w-96"
+                onClick={() => handleCategoryClick(category)}
+              >
+                <h3 className="text-xl font-bold text-center">{category}</h3>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </section>
   );
+
 };
 
 export default ProductsSection;
