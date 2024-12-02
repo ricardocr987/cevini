@@ -20,12 +20,14 @@ export default function RootLayout({
       <head />
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased flex flex-col",
           fontSans.variable
         )}
       >
         <Header />
-        {children}
+        <main className="flex-1 flex flex-col">
+          {children}
+        </main>
         <Toaster />
         <Footer />
       </body>
