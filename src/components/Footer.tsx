@@ -10,7 +10,6 @@ export const Footer = () => {
                     <Link href="/" className="hover:underline">Inicio</Link>
                     <Link href="/products" className="hover:underline">Productos</Link>
                     <Link href="/articles" className="hover:underline">Blog</Link>
-                    <Link href="/contact" className="hover:underline">Contacto</Link>
                 </div>
 
                 <div className="flex flex-col order-last md:order-none">
