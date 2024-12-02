@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const Footer = () => {
     return (
-        <footer className="bg-gradient-to-r from-orange-600 to-orange-500 text-white py-6">
+        <footer className="w-full bg-gradient-to-r from-orange-600 to-orange-500 text-white py-6">
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center text-center">
                 <div className="flex flex-col text-center">
                     <h3 className="font-bold mb-2">Te Puede Interesar</h3>
