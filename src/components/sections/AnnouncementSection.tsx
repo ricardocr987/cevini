@@ -9,9 +9,9 @@ type Announcement = {
 
 const announcements: Announcement[] = [
   {
-    title: "Subvención de la Consellería de Innovación, Industria, Comercio y Turismo 2023",
-    date: "Septiembre 6, 2023",
-    url: "articles/subvencion-de-la-conselleria-de-innovacion-industria-comercio-y-turismo-2023",
+    title: "Subvención de la Consellería de Innovación, Industria, Comercio y Turismo 2024",
+    date: "Diciembre 2, 2024",
+    url: "articles/subvencion-de-la-conselleria-de-innovacion-industria-comercio-y-turismo-2024",
   },
 ];
 
