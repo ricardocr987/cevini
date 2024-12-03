@@ -34,7 +34,6 @@ export const Footer = () => {
                             className='rounded-md mt-2'
                             width="200"
                             height="120"
-                            loading="lazy"
                             allowFullScreen
                             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZDDWpLyqoSElj6Om7vy_tVL_vjzO4hmY&q=Cer%C3%A1mica+Virgen+de+las+Nieves&center=38.4253052,-0.6235624&zoom=15">
                         </iframe>

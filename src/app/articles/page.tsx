@@ -18,10 +18,10 @@ export interface Article {
 }
 
 const articlesQuery = groq`
-  *[_type == "post"] | order(publishDate desc) {
+  *[_type == "post"] | order(_createdAt desc) {
     title,
     "slug": slug.current,
-    publishDate,
+    _createdAt,
     "categories": categories[]->title,
     "author": {
       "name": author->name,
@@ -31,7 +31,12 @@ const articlesQuery = groq`
 `;
 
 async function getArticles(): Promise<Article[]> {
-  return await client.fetch(articlesQuery);
+  const articles = await client.fetch(articlesQuery);
+  
+  return articles.map((article: any) => ({
+    ...article,
+    publishDate: article._createdAt
+  }));
 }
 
 function ArticleCard({ article }: { article: Article }) {
