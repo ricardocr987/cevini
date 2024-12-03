@@ -20,7 +20,7 @@ export interface Article {
 const articlesQuery = groq`
   *[_type == "post"] | order(_createdAt desc) {
     title,
-    "slug": slug.current,
+    slug,
     _createdAt,
     "categories": categories[]->title,
     "author": {
@@ -31,17 +31,23 @@ const articlesQuery = groq`
 `;
 
 async function getArticles(): Promise<Article[]> {
-  const articles = await client.fetch(articlesQuery);
-  
-  return articles.map((article: any) => ({
-    ...article,
-    publishDate: article._createdAt
-  }));
+  try {
+    const articles = await client.fetch(articlesQuery);
+    
+    return articles.map((article: any) => ({
+      ...article,
+      publishDate: article._createdAt,
+      slug: article.slug || { current: '' }
+    }));
+  } catch (error) {
+    console.error('Error fetching articles:', error);
+    return [];
+  }
 }
 
 function ArticleCard({ article }: { article: Article }) {
   return (
-    <Link href={`/articles/${article.slug}`}>
+    <Link href={`/articles/${article.slug.current}`}>
       <Card className="h-full hover:shadow-lg transition-shadow">
         <CardContent className="p-6">
           <h2 className="text-xl font-bold mb-2 text-gray-900">{article.title}</h2>

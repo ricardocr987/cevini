@@ -18,11 +18,12 @@ interface PostProps {
 
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
   title,
+  slug,
   body,
   "name": author->name,
   "categories": categories[]->title,
   "authorImage": author->image,
-  publishDate
+  _createdAt
 }`;
 
 export default async function Post({ params }: PostProps) {
@@ -40,8 +41,10 @@ export default async function Post({ params }: PostProps) {
     name = 'Missing name',
     categories,
     authorImage,
-    publishDate
+    _createdAt
   } = post;
+
+  const publishDate = new Date(_createdAt).toLocaleDateString('es-ES');
 
   return (
     <Card className="max-w-3xl mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
