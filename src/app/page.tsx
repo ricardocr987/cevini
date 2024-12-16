@@ -23,7 +23,7 @@ export default function Home() {
       <section className="relative z-10 bg-white">
         <FeaturesSection />
         <AnnouncementSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </section>
     </div>
   );
