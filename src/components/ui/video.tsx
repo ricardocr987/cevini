@@ -9,7 +9,7 @@ export const Video = () => {
             className="absolute h-full w-full object-cover"
             style={{ zIndex: -1 }}
         >
-            <source src="/media/bricks.mp4" type="video/mp4" />
+            <source src="/media/cevini.mp4" type="video/mp4" />
         </video>
     );
 };
