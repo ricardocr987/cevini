@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const Header = () => {
     return (
         <header 
-            className="px-4 md:px-6 bg-gradient-to-r from-orange-600 to-orange-500 grid grid-cols-3 items-center text-white"
+            className="px-4 md:px-6 grid grid-cols-3 items-center text-white"
             style={{ height: "60px" }}
         >
             <Link href="/" passHref className="cursor-pointer">

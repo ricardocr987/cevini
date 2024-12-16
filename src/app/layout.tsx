@@ -24,7 +24,6 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Header />
         <main className="flex-1 flex flex-col">
           {children}
         </main>

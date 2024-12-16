@@ -2,14 +2,22 @@ import React from 'react';
 
 export const Video = () => {
     return (
-        <video
-            autoPlay
-            muted
-            loop
-            className="absolute h-full w-full object-cover"
-            style={{ zIndex: -1 }}
-        >
-            <source src="/media/cevini.mp4" type="video/mp4" />
-        </video>
+        <div className="relative w-full h-full">
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover"
+                aria-label="Background video"
+            >
+                <source 
+                    src="/media/cevini.mp4" 
+                    type="video/mp4"
+                />
+                Your browser does not support the video tag.
+            </video>
+        </div>
     );
 };

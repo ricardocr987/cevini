@@ -1,7 +1,6 @@
 import { AnnouncementSection } from "@/components/sections/AnnouncementSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { FeaturesSection } from "@/components/sections/FeaturesSection";
-import { Header } from "@/components/Header";
 import { VideoSection } from "@/components/sections/VideoSection";
 import { Metadata } from 'next'
 
@@ -17,13 +16,15 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div id="app-root">
-      <main>
+    <div className="flex flex-col">
+      <section className="h-screen">
         <VideoSection />
+      </section>
+      <section className="relative z-10 bg-white">
         <FeaturesSection />
         <AnnouncementSection />
         <ContactSection />
-      </main>
+      </section>
     </div>
   );
 }
