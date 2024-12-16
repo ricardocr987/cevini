@@ -1,47 +1,57 @@
-import Link from "next/link"
-import { Video } from "../ui/video"
 import Image from 'next/image'
-import { Button } from "../ui/button"
+import { Video } from "../ui/video"
+
+interface LogoProps {
+  className?: string;
+}
+
+const Logo = ({ className }: LogoProps) => (
+  <Image
+    alt="Cerámica Virgen de las Nieves Logo"
+    className={`rounded-lg ${className}`}
+    src="/media/cevini.svg"
+    width={200}
+    height={200}
+    priority
+  />
+);
+
+interface HeroTextProps {
+  className?: string;
+}
+
+const HeroText = ({ className }: HeroTextProps) => (
+  <div className={`space-y-4 ${className}`}>
+    <p className="text-white text-lg md:text-2xl font-bold text-center max-w-[280px] sm:max-w-[400px] md:max-w-[750px]">
+      Desde 1970, fabricamos ladrillos que construyen hogares con
+    </p>
+    <p className="font-extrabold bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent text-xl md:text-3xl text-center">
+      paredes de verdad
+    </p>
+  </div>
+);
 
 export const VideoSection = () => {
-    return (
-        <section className="relative w-full h-full">
-            <div className="absolute inset-0">
-                <Video />
-            </div>
-            <HeroContent />
-        </section>
-    )
-}
+  return (
+    <section className="relative w-full h-full">
+      {/* Background Video */}
+      <div className="absolute inset-0">
+        <Video />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
 
-const HeroContent = () => {
-    return (
-        <div className="relative h-full container mx-auto px-4 text-center">
-            <div className="h-full flex flex-col space-y-12 justify-center items-center mx-28">
-                <p className="text-white text-lg md:text-xl font-bold text-center max-w-[700px] leading-relaxed">
-                    Desde 1970, fabricamos ladrillos que construyen hogares con
-                    <span className="ml-2 text-xl md:text-2xl font-extrabold bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">
-                        paredes de verdad
-                    </span>
-                </p>
+      {/* Logo */}
+      <div className="absolute md:right-8 md:top-8 w-full md:w-auto top-24 z-50 flex justify-center">
+        <Logo />
+      </div>
 
-                <Image
-                    alt="Cerámica Virgen de las Nieves Logo"
-                    className="rounded-lg"
-                    src="/media/cevini.svg"
-                    width={200}
-                    height={200}
-                    priority
-                />
-
-                <div>
-                    <Link href='/products' className="px-4 py-2 hover:bg-black-100 text-white font-medium rounded-md">
-                        <Button className="text-lg font-semibold"> 
-                            Descubre nuestros productos 
-                        </Button>
-                    </Link>
-                </div>
-            </div>
+      {/* Content Container */}
+      <div className="relative h-full container mx-auto px-4">
+        <div className="h-full flex flex-col justify-center md:justify-end items-center">
+          <HeroText className="mt-32 md:mt-0 md:mb-32" />
         </div>
-    )
-}
+      </div>
+    </section>
+  );
+};

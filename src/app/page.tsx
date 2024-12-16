@@ -2,7 +2,9 @@ import { AnnouncementSection } from "@/components/sections/AnnouncementSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { FeaturesSection } from "@/components/sections/FeaturesSection";
 import { VideoSection } from "@/components/sections/VideoSection";
+import ProductsSection from "@/components/sections/ProductsSection";
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_URL!),
@@ -16,11 +18,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col">      
       <section className="h-screen">
         <VideoSection />
       </section>
       <section className="relative z-10 bg-white">
+        <ProductsSection />
         <FeaturesSection />
         <AnnouncementSection />
         {/* <ContactSection /> */}
