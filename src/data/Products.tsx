@@ -8,22 +8,6 @@ export type ProductInfo = {
 };
 const Bloques: ProductInfo[] = [
     {
-        modelo: "14x20x24 H16",
-        clasificacion: "Bloques",
-        peso: 4.7,
-        unidadM2: 15,
-        unidadPalet: 375,
-        precioOrigen: 0.56,
-    },
-    {
-        modelo: "14x20x24 H20",
-        clasificacion: "Bloques",
-        peso: 5.2,
-        unidadM2: 15,
-        unidadPalet: 225,
-        precioOrigen: 0.61,
-    },
-    {
         modelo: "4x16x33",
         clasificacion: "Bloques",
         peso: 1.9,
@@ -126,6 +110,22 @@ const Bloques: ProductInfo[] = [
         unidadM2: 12,
         unidadPalet: 100,
         precioOrigen: 0.62,
+    },
+    {
+        modelo: "14x20x24 H16",
+        clasificacion: "Bloques",
+        peso: 4.7,
+        unidadM2: 15,
+        unidadPalet: 375,
+        precioOrigen: 0.56,
+    },
+    {
+        modelo: "14x20x24 H20",
+        clasificacion: "Bloques",
+        peso: 5.2,
+        unidadM2: 15,
+        unidadPalet: 225,
+        precioOrigen: 0.61,
     },
 ];
 
