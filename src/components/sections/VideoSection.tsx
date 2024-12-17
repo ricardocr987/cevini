@@ -10,8 +10,8 @@ const Logo = ({ className }: LogoProps) => (
     alt="Cerámica Virgen de las Nieves Logo"
     className={`rounded-lg ${className}`}
     src="/media/cevini.svg"
-    width={200}
-    height={200}
+    width={150}
+    height={150}
     priority
   />
 );
@@ -38,7 +38,7 @@ export const VideoSection = () => {
       <div className="absolute inset-0">
         <Video />
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/10" />
       </div>
 
       {/* Logo */}
