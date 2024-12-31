@@ -1,4 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.video-section {
+  background-color: #000; /* Or any color that matches your design */
+}
+
+/* Firefox scrollbar styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #f97316 #1f2937;
+}
   

@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss"
-const { fontFamily } = require("tailwindcss/defaultTheme")
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 const config = {
   darkMode: ["class"],
@@ -13,7 +13,7 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        'sans': ['"Proxima Nova"', ...defaultTheme.fontFamily.sans],
       },
     },
   },

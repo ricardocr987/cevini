@@ -21,7 +21,7 @@ interface HeroTextProps {
 }
 
 const HeroText = ({ className }: HeroTextProps) => (
-  <div className={`space-y-4 ${className}`}>
+  <div className={`space-y-4 ${className} font-sans`}>
     <p className="text-white text-lg md:text-2xl font-bold text-center max-w-[280px] sm:max-w-[400px] md:max-w-[750px]">
       Desde 1970, fabricamos ladrillos que construyen hogares con
     </p>
@@ -33,12 +33,12 @@ const HeroText = ({ className }: HeroTextProps) => (
 
 export const VideoSection = () => {
   return (
-    <section className="relative w-full h-full">
+    <section className="relative w-full h-full overflow-hidden">
       {/* Background Video */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 w-full h-full">
         <Video />
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
       </div>
 
       {/* Logo */}

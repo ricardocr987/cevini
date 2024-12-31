@@ -1,16 +1,36 @@
-import React from 'react';
+'use client'
+import React, { useEffect, useRef } from 'react';
 
 export const Video = () => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        // Attempt to play the video as soon as it's loaded
+        const playVideo = async () => {
+            try {
+                if (videoRef.current) {
+                    await videoRef.current.play();
+                }
+            } catch (error) {
+                console.log("Autoplay failed:", error);
+            }
+        };
+
+        playVideo();
+    }, []);
+
     return (
         <div className="relative w-full h-full">
             <video
+                ref={videoRef}
                 autoPlay
+                playsInline
                 muted
                 loop
-                playsInline
-                preload="metadata"
+                preload="auto"
                 className="w-full h-full object-cover"
                 aria-label="Background video"
+                poster="/media/poster.jpg" // Add a poster image for better loading experience
             >
                 <source 
                     src="/media/cevini.mp4" 
