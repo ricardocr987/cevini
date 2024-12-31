@@ -17,7 +17,7 @@ const ProductsSection: React.FC = () => {
 
   return (
     <section className="bg-gray-200 pt-3 px-3">
-      <div className="bg-gradient-to-r from-orange-600 to-orange-500 shadow-md rounded-lg p-6 w-full flex flex-col items-center text-white md:h-[520px]">
+      <div className="bg-gradient-to-r from-orange-600 to-orange-500 shadow-md rounded-lg p-6 w-full flex flex-col items-center text-white h-[600px] md:h-[520px]">
         <div className="w-full max-w-7xl h-full flex flex-col">
           <div className="flex-none">
             <h2 className="text-3xl font-bold text-center text-white mb-6">Nuestros Productos</h2>
