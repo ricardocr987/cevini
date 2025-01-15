@@ -25,8 +25,8 @@ export default function Home() {
       <section className="relative z-10 bg-white">
         <ProductsSection />
         <FeaturesSection />
+        <ContactSection />
         <AnnouncementSection />
-        {/* <ContactSection /> */}
       </section>
     </div>
   );

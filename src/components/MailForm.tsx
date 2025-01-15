@@ -1,6 +1,4 @@
 'use client'
-// https://github.com/cosdensolutions/code/tree/master/videos/long/reusable-create-edit-form
-// https://ui.shadcn.com/docs/components/checkbox#form
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -9,29 +7,34 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { TextArea } from './ui/textArea';
 import { Checkbox } from './ui/checkbox';
-import { FormField, FormControl, Form, FormItem, FormLabel } from './ui/form';
+import { FormField, FormControl, Form, FormItem, FormLabel, FormMessage } from './ui/form';
 import { toast } from '@/hooks/use-toast';
 import { useState } from 'react';
+import { Loader2 } from 'lucide-react';
+import { TermsAndConditionsModal } from './TermsAndConditionsModal';
 
 const formSchema = z.object({
     email: z.string()
-             .email({ message: "Correo inválido" }),
+             .email({ message: "Correo electrónico inválido" })
+             .min(1, { message: "El correo es obligatorio" }),
     name: z.string()
-            .min(2, { message: "Introduce tu nombre" }),
-    text: z.string(),
-    approvedNewsletter: z.boolean(),
+            .min(2, { message: "El nombre debe tener al menos 2 caracteres" })
+            .max(50, { message: "El nombre no puede exceder 50 caracteres" }),
+    text: z.string()
+           .min(10, { message: "El mensaje debe tener al menos 10 caracteres" })
+           .max(1000, { message: "El mensaje no puede exceder 1000 caracteres" }),
+    approvedNewsletter: z.boolean().default(false),
     approvedTerms: z.boolean()
-                    .refine((val: boolean) => val, { message: "Debes aceptar los términos y condiciones." }),
+                    .refine((val) => val, { 
+                        message: "Debes aceptar los términos y condiciones" 
+                    }),
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
 export default function MailForm() {
-    const [modalOpen, setModalOpen] = useState(false);
-    const handleTermsClick = (event: React.MouseEvent<HTMLSpanElement>) => {
-        event.preventDefault();
-        setModalOpen(true);
-    };
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [termsOpen, setTermsOpen] = useState(false);
 
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
@@ -44,7 +47,8 @@ export default function MailForm() {
         },
     });
 
-    async function onSubmit(data: FormValues): Promise<void> {
+    async function onSubmit(data: FormValues) {
+        setIsSubmitting(true);
         try {
             const response = await fetch('/api/sendMail', {
                 method: 'POST',
@@ -53,104 +57,162 @@ export default function MailForm() {
                 },
                 body: JSON.stringify(data),
             });
-    
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
             const result = await response.json();
-    
+
             if (result.status === 'Success') {
                 toast({
                     title: "Mensaje enviado",
-                    description: "Contestaremos lo antes posible",
+                    description: "Nos pondremos en contacto contigo lo antes posible",
                 });
+                form.reset();
             } else {
-                toast({
-                    title: "Error al enviar mensaje",
-                    description: result.message || "Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.",
-                });
+                throw new Error(result.message || "Error al enviar el mensaje");
             }
         } catch (error) {
+            console.error('Error in form submission:', error);
             toast({
                 title: "Error al enviar mensaje",
-                description: "Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.",
+                description: "Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo más tarde",
+                variant: "destructive",
             });
+        } finally {
+            setIsSubmitting(false);
         }
     }
 
-    const showErrorMessages = () => {
-        return Object.values(form.formState.errors)
-            .map(error => error?.message)
-            .filter(Boolean)
-            //.filter(message => message !== "Expected boolean, received string") // checkbox default value can be this string
-            .join(' | ');
-    };
-
     return (
-        <div className="bg-gradient-to-r from-orange-600 to-orange-500 shadow-md rounded-lg p-6 w-full flex flex-col items-center text-white">
-            <h2 className="text-3xl font-bold mb-6">Contáctanos</h2>
-            <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 w-72 md:w-96">
-                    <FormField control={form.control} name="name" render={({ field }) => (
+        <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+                <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <Input {...field} id="name" placeholder="Nombre" />
-                            </FormControl>
-                        </FormItem>
-                    )}/>
-                    <FormField control={form.control} name="email" render={({ field }) => (
-                        <FormItem>
-                            <FormControl>
-                                <Input {...field} id="email" type="email" placeholder="Correo" />
-                            </FormControl>
-                        </FormItem>
-                    )}/>
-                    <FormField control={form.control} name="text" render={({ field }) => (
-                        <FormItem>
-                            <FormControl>
-                                <TextArea {...field} id="text" placeholder="Mensaje" />
-                            </FormControl>
-                        </FormItem>
-                    )}/>
-                    <FormField control={form.control} name="approvedNewsletter" render={({ field }) => (
-                        <FormItem className="flex flex-row items-start space-y-0">
-                            <FormControl>
-                                <Checkbox 
-                                    checked={field.value as boolean}
-                                    onCheckedChange={field.onChange}
-                                    className='mr-2'
+                                <Input
+                                    {...field}
+                                    placeholder="Nombre"
+                                    disabled={isSubmitting}
+                                    className="bg-neutral-900/50 border-0 text-white placeholder:text-white/70 focus-visible:ring-white/20"
                                 />
                             </FormControl>
-                            <FormLabel>Acepto recibir ofertas y noticias</FormLabel>
+                            <FormMessage className="text-red-200" />
                         </FormItem>
-                    )}/>
-                    <FormField control={form.control} name="approvedTerms" render={({ field }) => (
-                        <FormItem className="flex flex-row items-start space-y-0">
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                        <FormItem>
                             <FormControl>
-                                <Checkbox 
-                                    checked={field.value  as boolean}
-                                    onCheckedChange={field.onChange}
-                                    className='mr-2'
+                                <Input
+                                    {...field}
+                                    type="email"
+                                    placeholder="Correo electrónico"
+                                    disabled={isSubmitting}
+                                    className="bg-neutral-900/50 border-0 text-white placeholder:text-white/70 focus-visible:ring-white/20"
                                 />
                             </FormControl>
-                            <FormLabel>
-                                Acepto los
-                                <span
-                                    onClick={handleTermsClick}
-                                    className="ml-1 underline underline-offset-2 cursor-pointer"
-                                >
-                                    términos y condiciones
-                                </span>
+                            <FormMessage className="text-red-200" />
+                        </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="text"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormControl>
+                                <TextArea
+                                    {...field}
+                                    placeholder="Mensaje"
+                                    disabled={isSubmitting}
+                                    className="bg-neutral-900/50 border-0 text-white placeholder:text-white/70 focus-visible:ring-white/20 min-h-[120px]"
+                                />
+                            </FormControl>
+                            <FormMessage className="text-red-200" />
+                        </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="approvedNewsletter"
+                    render={({ field }) => (
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                            <FormControl>
+                                <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                    disabled={isSubmitting}
+                                    className="bg-neutral-900/50 border-white/20 data-[state=checked]:bg-white data-[state=checked]:text-orange-600"
+                                />
+                            </FormControl>
+                            <FormLabel className="text-sm text-white font-normal leading-none cursor-pointer">
+                                Deseo recibir noticias y ofertas
                             </FormLabel>
                         </FormItem>
-                    )}/>
-                    <Button type="submit" className="w-full">Enviar</Button>
-                    <p className="text-red-800 text-xs text-center">{showErrorMessages()}</p>
-                </form>
-            </Form>
-            {/*<Modal
-                modalStatus={modalOpen}
-                onClose={() => setModalOpen(false)}
-            >
-                <p>Contenido de los términos y condiciones...</p>
-            </Modal>*/}
-        </div>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="approvedTerms"
+                    render={({ field }) => (
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                            <FormControl>
+                                <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                    disabled={isSubmitting}
+                                    className="bg-neutral-900/50 border-white/20 data-[state=checked]:bg-white data-[state=checked]:text-orange-600"
+                                />
+                            </FormControl>
+                            <div className="space-y-1">
+                                <FormLabel className="text-sm text-white font-normal leading-none">
+                                    Acepto los{" "}
+                                    <button
+                                        type="button"
+                                        onClick={() => setTermsOpen(true)}
+                                        className="underline hover:text-neutral-300 transition-colors"
+                                    >
+                                        términos y condiciones
+                                    </button>
+                                </FormLabel>
+                                <FormMessage className="text-red-200" />
+                            </div>
+                        </FormItem>
+                    )}
+                />
+
+                <TermsAndConditionsModal 
+                    open={termsOpen} 
+                    onOpenChange={setTermsOpen} 
+                />
+
+                <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-neutral-900 hover:bg-neutral-800 text-white transition-colors mt-2"
+                >
+                    {isSubmitting ? (
+                        <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Enviando...
+                        </>
+                    ) : (
+                        'Enviar mensaje'
+                    )}
+                </Button>
+            </form>
+        </Form>
     );
 }
