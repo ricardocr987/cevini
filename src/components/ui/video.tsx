@@ -32,7 +32,6 @@ export const Video = () => {
                 aria-label="Background video"
                 aria-hidden="true"
                 tabIndex={-1}
-                poster="/media/poster.jpg"
                 disablePictureInPicture
                 controlsList="nodownload noremoteplayback nofullscreen noplaybackrate"
             >
