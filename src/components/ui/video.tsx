@@ -33,6 +33,8 @@ export const Video = () => {
                 aria-hidden="true"
                 tabIndex={-1}
                 poster="/media/poster.jpg"
+                disablePictureInPicture
+                controlsList="nodownload noremoteplayback nofullscreen noplaybackrate"
             >
                 <source src="/media/cevini.mp4" type="video/mp4" />
                 Your browser does not support the video tag.

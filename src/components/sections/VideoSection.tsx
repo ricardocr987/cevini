@@ -10,8 +10,8 @@ const Logo = ({ className }: LogoProps) => (
     alt="Cerámica Virgen de las Nieves Logo"
     className={`rounded-lg ${className}`}
     src="/media/cevini.svg"
-    width={150}
-    height={150}
+    width={200}
+    height={200}
     priority
   />
 );
@@ -48,8 +48,10 @@ export const VideoSection = () => {
 
       {/* Content Container */}
       <div className="relative h-full container mx-auto px-4">
-        <div className="h-full flex flex-col justify-center md:justify-end items-center">
-          <HeroText className="mt-32 md:mt-0 md:mb-32" />
+        <div className="h-full flex flex-col justify-end items-center">
+          <div className="backdrop-blur-md bg-black/40 rounded-xl shadow-lg p-4 sm:p-6 md:p-8 mb-8 sm:mb-12 md:mb-16 max-w-[80vw] sm:max-w-[400px] md:max-w-[800px] w-full flex flex-col items-center">
+            <HeroText className="" />
+          </div>
         </div>
       </div>
     </section>
