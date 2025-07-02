@@ -16,12 +16,9 @@ const Logo = ({ className }: LogoProps) => (
   />
 );
 
-interface HeroTextProps {
-  className?: string;
-}
 
-const HeroText = ({ className }: HeroTextProps) => (
-  <div className={`space-y-4 ${className} font-sans`}>
+const HeroText = () => (
+  <div className={`space-y-1 font-sans`}>
     <p className="text-white text-lg md:text-2xl font-bold text-center max-w-[280px] sm:max-w-[400px] md:max-w-[750px]">
       Desde 1970, fabricamos ladrillos que construyen hogares con
     </p>
@@ -47,10 +44,10 @@ export const VideoSection = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative h-full container mx-auto px-4">
+      <div className="relative h-full container mx-auto">
         <div className="h-full flex flex-col justify-end items-center">
-          <div className="backdrop-blur-md bg-black/40 rounded-xl shadow-lg p-4 sm:p-6 md:p-8 mb-8 sm:mb-12 md:mb-16 max-w-[80vw] sm:max-w-[400px] md:max-w-[800px] w-full flex flex-col items-center">
-            <HeroText className="" />
+          <div className="backdrop-blur-md bg-black/40 rounded-xl shadow-lg p-4 sm:p-6 md:p-8 mb-4 sm:mb-8 md:mb-16 max-w-[80vw] sm:max-w-[400px] md:max-w-[800px] w-full flex flex-col items-center">
+            <HeroText  />
           </div>
         </div>
       </div>
