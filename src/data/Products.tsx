@@ -5,6 +5,7 @@ export type ProductInfo = {
     unidadM2: number;
     unidadPalet: number;
     precioOrigen: number;  
+    pdf?: string;
 };
 const Bloques: ProductInfo[] = [
     {
@@ -14,6 +15,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 18,
         unidadPalet: 450,
         precioOrigen: 0.2,
+        pdf: "4x16x33.pdf"
     },
     {
         modelo: "5x16x33",
@@ -30,6 +32,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 18,
         unidadPalet: 270,
         precioOrigen: 0.27,
+        pdf: "7x16x33.pdf"
     },
     {
         modelo: "9x16x33",
@@ -38,6 +41,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 18,
         unidadPalet: 216,
         precioOrigen: 0.31,
+        pdf: "9x16x33.pdf"
     },
     {
         modelo: "11x16x33",
@@ -46,6 +50,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 18,
         unidadPalet: 180,
         precioOrigen: 0.37,
+        pdf: "11x16x33.pdf"
     },
     {
         modelo: "4x20x33",
@@ -54,6 +59,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 15,
         unidadPalet: 375,
         precioOrigen: 0.22,
+        pdf: "BLOQUE_4X20X33.pdf"
     },
     {
         modelo: "7x20x33",
@@ -62,6 +68,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 15,
         unidadPalet: 225,
         precioOrigen: 0.3,
+        pdf: "7x20x33.pdf"
     },
     {
         modelo: "9x20x33",
@@ -70,6 +77,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 15,
         unidadPalet: 180,
         precioOrigen: 0.34,
+        pdf: "9x20x33.pdf"
     },
     {
         modelo: "11x20x33",
@@ -78,6 +86,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 15,
         unidadPalet: 150,
         precioOrigen: 0.43,
+        pdf: "11x20x33.pdf"
     },
     {
         modelo: "4x20x40",
@@ -86,6 +95,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 12,
         unidadPalet: 280,
         precioOrigen: 0.38,
+        pdf: "BLOQUE_4X20X40.pdf"
     },
     {
         modelo: "7x20x40",
@@ -94,6 +104,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 12,
         unidadPalet: 150,
         precioOrigen: 0.47,
+        pdf: "7x20x40.pdf"
     },
     {
         modelo: "9x20x40",
@@ -102,6 +113,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 12,
         unidadPalet: 130,
         precioOrigen: 0.54,
+        pdf: "9x20x40.pdf"
     },
     {
         modelo: "11x20x40",
@@ -110,6 +122,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 12,
         unidadPalet: 100,
         precioOrigen: 0.62,
+        pdf: "11x20x40.pdf"
     },
     {
         modelo: "14x20x24 H16",
@@ -118,6 +131,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 15,
         unidadPalet: 375,
         precioOrigen: 0.56,
+        pdf: "H16.pdf"
     },
     {
         modelo: "14x20x24 H20",
@@ -126,6 +140,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 15,
         unidadPalet: 225,
         precioOrigen: 0.61,
+        pdf: "H20.pdf"
     },
 ];
 
@@ -153,6 +168,7 @@ const Bardos: ProductInfo[] = [
         unidadM2: 5.71,
         unidadPalet: 128,
         precioOrigen: 0.77,
+        pdf: "70x25x3,5.pdf"
     },
     {
         modelo: "80x25x3,5",
@@ -161,6 +177,7 @@ const Bardos: ProductInfo[] = [
         unidadM2: 5.01,
         unidadPalet: 128,
         precioOrigen: 0.90,
+        pdf: "80x25x3,5.pdf"
     },
     {
         modelo: "90x25x3,5",
@@ -169,6 +186,7 @@ const Bardos: ProductInfo[] = [
         unidadM2: 4.44,
         unidadPalet: 128,
         precioOrigen: 1.00,
+        pdf: "90x25x3,5.pdf"
     },
     {
         modelo: "100x25x3,5",
@@ -177,6 +195,7 @@ const Bardos: ProductInfo[] = [
         unidadM2: 4.01,
         unidadPalet: 128,
         precioOrigen: 1.10,
+        pdf: "100x25x3,5.pdf"
     },
     {
         modelo: "110x25x3,5",
@@ -252,6 +271,7 @@ const Huecos: ProductInfo[] = [
         unidadM2: 32,
         unidadPalet: 1248,
         precioOrigen: 0.17,
+        pdf: "2x12x24.pdf"
     },
     {
         modelo: "3x12x24",
@@ -260,6 +280,7 @@ const Huecos: ProductInfo[] = [
         unidadM2: 32,
         unidadPalet: 1088,
         precioOrigen: 0.17,
+        pdf: "3x12x24.pdf"
     },
     {
         modelo: "4x12x24",
@@ -268,6 +289,7 @@ const Huecos: ProductInfo[] = [
         unidadM2: 32,
         unidadPalet: 800,
         precioOrigen: 0.15,
+        pdf: "4x12x24.pdf"
     },
     {
         modelo: "7x12x24",
@@ -284,6 +306,7 @@ const Huecos: ProductInfo[] = [
         unidadM2: 32,
         unidadPalet: 384,
         precioOrigen: 0.21,
+        pdf: "9x12x24.pdf"
     },
     {
         modelo: "PANCHITO LIGERO",
@@ -292,6 +315,7 @@ const Huecos: ProductInfo[] = [
         unidadM2: 32,
         unidadPalet: 384,
         precioOrigen: 0.26,
+        pdf: "PANCHITO_LIGERO.pdf"
     },
     {
         modelo: "PANCHITO MACIZO",
@@ -300,6 +324,7 @@ const Huecos: ProductInfo[] = [
         unidadM2: 32,
         unidadPalet: 320,
         precioOrigen: 0.29,
+        pdf: "PANCHITO_MACIZO.pdf"
     },
 ];
 
@@ -311,6 +336,7 @@ const Panal: ProductInfo[] = [
         unidadM2: 40,
         unidadPalet: 320,
         precioOrigen: 0.19,
+        pdf: "PANAL_9.pdf"
     },
     {
         modelo: "PANAL 9 4H",
@@ -319,6 +345,7 @@ const Panal: ProductInfo[] = [
         unidadM2: 40,
         unidadPalet: 320,
         precioOrigen: 0.22,
+        pdf: "PANAL_9_4H.pdf"
     },
     {
         modelo: "TERMOPANAL",
@@ -327,6 +354,7 @@ const Panal: ProductInfo[] = [
         unidadM2: 17,
         unidadPalet: 150,
         precioOrigen: 0.48,
+        pdf: "TERMOPANAL.pdf"
     },
     {
         modelo: "PANAL DOBLE",
@@ -335,6 +363,7 @@ const Panal: ProductInfo[] = [
         unidadM2: 20,
         unidadPalet: 200,
         precioOrigen: 0.40,
+        pdf: "PANAL_DOBLE.pdf"
     },
     {
         modelo: "ACÚSTICO 11 (45Db)",
@@ -359,6 +388,7 @@ const Panal: ProductInfo[] = [
         unidadM2: 17,
         unidadPalet: 90,
         precioOrigen: 0.75,
+        pdf: "PANAL_190.pdf"
     },
 ];
 
@@ -370,6 +400,7 @@ const Termonieves: ProductInfo[] = [
         unidadM2: 15,
         unidadPalet: 105,
         precioOrigen: 0.59,
+        pdf: "14x20x30.pdf"
     },
     {
         modelo: "19x20x30",
@@ -378,6 +409,7 @@ const Termonieves: ProductInfo[] = [
         unidadM2: 15,
         unidadPalet: 75,
         precioOrigen: 0.72,
+        pdf: "19x20x30.pdf"
     },
     {
         modelo: "24x20x30",
@@ -386,6 +418,7 @@ const Termonieves: ProductInfo[] = [
         unidadM2: 15,
         unidadPalet: 60,
         precioOrigen: 1.02,
+        pdf: "24x20x30.pdf"
     },
     {
         modelo: "29x20x30",
@@ -394,6 +427,7 @@ const Termonieves: ProductInfo[] = [
         unidadM2: 15,
         unidadPalet: 45,
         precioOrigen: 1.25,
+        pdf: "29x20x30.pdf"
     },
 ];
 

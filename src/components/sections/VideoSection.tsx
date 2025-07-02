@@ -38,7 +38,7 @@ export const VideoSection = () => {
       <div className="absolute inset-0 w-full h-full">
         <Video />
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
 
       {/* Logo */}

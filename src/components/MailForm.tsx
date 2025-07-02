@@ -143,7 +143,7 @@ export default function MailForm() {
                     )}
                 />
 
-                <FormField
+                {/*<FormField
                     control={form.control}
                     name="approvedNewsletter"
                     render={({ field }) => (
@@ -161,7 +161,7 @@ export default function MailForm() {
                             </FormLabel>
                         </FormItem>
                     )}
-                />
+                />*/}
 
                 <FormField
                     control={form.control}

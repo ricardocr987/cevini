@@ -24,7 +24,6 @@ export default function Home() {
       </section>
       <section className="relative z-10 bg-white">
         <ProductsSection />
-        <FeaturesSection />
         <ContactSection />
         <AnnouncementSection />
       </section>

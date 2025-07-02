@@ -47,13 +47,26 @@ const ProductsSection: React.FC = () => {
                     <div className="flex-1">
                       <div className="flex items-start gap-2 mb-1">
                         <h3 className="font-semibold text-sm md:text-base text-white truncate">{product.modelo}</h3>
-                        <button 
-                          className="bg-red-600 hover:bg-red-700 p-1.5 md:p-2 rounded-md transition-colors flex-shrink-0"
-                          onClick={() => handleDownloadClick(product)}
-                          title="Descargar certificado CE"
-                        >
-                          <FileText className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                        </button>
+                        {product.pdf ? (
+                          <a
+                            href={`/media/products/pdf/${product.pdf}`}
+                            download
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Descargar certificado CE"
+                            className="bg-red-600 hover:bg-red-700 p-1.5 md:p-2 rounded-md transition-colors flex-shrink-0"
+                          >
+                            <FileText className="h-4 w-4 md:h-5 md:w-5 text-white" />
+                          </a>
+                        ) : (
+                          <button
+                            disabled
+                            className="bg-gray-400 p-1.5 md:p-2 rounded-md flex-shrink-0 cursor-not-allowed"
+                            title="No hay certificado disponible"
+                          >
+                            <FileText className="h-4 w-4 md:h-5 md:w-5 text-white" />
+                          </button>
+                        )}
                       </div>
                       <div className="mt-1.5 md:mt-2 space-y-1">
                         <p className="text-xs md:text-sm text-gray-300">Peso: {product.peso}kg</p>

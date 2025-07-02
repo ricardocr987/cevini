@@ -30,12 +30,11 @@ export const Video = () => {
                 preload="auto"
                 className="w-full h-full object-cover"
                 aria-label="Background video"
-                poster="/media/poster.jpg" // Add a poster image for better loading experience
+                aria-hidden="true"
+                tabIndex={-1}
+                poster="/media/poster.jpg"
             >
-                <source 
-                    src="/media/cevini.mp4" 
-                    type="video/mp4"
-                />
+                <source src="/media/cevini.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
         </div>
