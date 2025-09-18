@@ -41,7 +41,7 @@ export const Footer = () => {
                 </div>
             </div>
             <div className="text-center mt-6">
-                <p>Cerámica Virgen de las Nieves © 2024</p>
+                <p>Cerámica Virgen de las Nieves © 2025</p>
             </div>
         </footer>
     );

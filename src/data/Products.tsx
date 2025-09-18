@@ -24,6 +24,7 @@ const Bloques: ProductInfo[] = [
         unidadM2: 18,
         unidadPalet: 360,
         precioOrigen: 0.24,
+        pdf: "5x16x33.pdf"
     },
     {
         modelo: "7x16x33",
@@ -125,7 +126,7 @@ const Bloques: ProductInfo[] = [
         pdf: "11x20x40.pdf"
     },
     {
-        modelo: "14x20x24 H16",
+        modelo: "14x20x24_H16",
         clasificacion: "Bloques",
         peso: 4.7,
         unidadM2: 15,
@@ -134,7 +135,7 @@ const Bloques: ProductInfo[] = [
         pdf: "H16.pdf"
     },
     {
-        modelo: "14x20x24 H20",
+        modelo: "14x20x24_H20",
         clasificacion: "Bloques",
         peso: 5.2,
         unidadM2: 15,
@@ -212,6 +213,7 @@ const Bardos: ProductInfo[] = [
         unidadM2: 3.30,
         unidadPalet: 104,
         precioOrigen: 2.85,
+        pdf: "120x25x4.pdf"
     },
     {
         modelo: "130x25x4",
@@ -220,6 +222,7 @@ const Bardos: ProductInfo[] = [
         unidadM2: 3.00,
         unidadPalet: 104,
         precioOrigen: 3.41,
+        pdf: "130x25x4.pdf"
     },
     {
         modelo: "140x25x5",
@@ -252,6 +255,7 @@ const Bardos: ProductInfo[] = [
         unidadM2: 2.20,
         unidadPalet: 36,
         precioOrigen: 4.62,
+        pdf: "180x25x6.pdf"
     },
     {
         modelo: "200x25x6",
@@ -298,6 +302,7 @@ const Huecos: ProductInfo[] = [
         unidadM2: 32,
         unidadPalet: 480,
         precioOrigen: 0.20,
+        pdf: "7x12x24.pdf"
     },
     {
         modelo: "9x12x24",
@@ -309,7 +314,7 @@ const Huecos: ProductInfo[] = [
         pdf: "9x12x24.pdf"
     },
     {
-        modelo: "PANCHITO LIGERO",
+        modelo: "PANCHITO_LIGERO",
         clasificacion: "Huecos",
         peso: 2.20,
         unidadM2: 32,
@@ -318,7 +323,7 @@ const Huecos: ProductInfo[] = [
         pdf: "PANCHITO_LIGERO.pdf"
     },
     {
-        modelo: "PANCHITO MACIZO",
+        modelo: "PANCHITO_MACIZO",
         clasificacion: "Huecos",
         peso: 2.70,
         unidadM2: 32,
@@ -330,7 +335,7 @@ const Huecos: ProductInfo[] = [
 
 const Panal: ProductInfo[] = [
     {
-        modelo: "PANAL 9",
+        modelo: "PANAL_9",
         clasificacion: "Panal",
         peso: 2.00,
         unidadM2: 40,
@@ -339,7 +344,7 @@ const Panal: ProductInfo[] = [
         pdf: "PANAL_9.pdf"
     },
     {
-        modelo: "PANAL 9 4H",
+        modelo: "PANAL_9_4H",
         clasificacion: "Panal",
         peso: 2.20,
         unidadM2: 40,
@@ -357,7 +362,7 @@ const Panal: ProductInfo[] = [
         pdf: "TERMOPANAL.pdf"
     },
     {
-        modelo: "PANAL DOBLE",
+        modelo: "PANAL_DOBLE",
         clasificacion: "Panal",
         peso: 4.00,
         unidadM2: 20,
@@ -366,23 +371,25 @@ const Panal: ProductInfo[] = [
         pdf: "PANAL_DOBLE.pdf"
     },
     {
-        modelo: "ACÚSTICO 11 (45Db)",
+        modelo: "ACUSTICO_11",
         clasificacion: "Panal",
         peso: 2.90,
         unidadM2: 40,
         unidadPalet: 296,
         precioOrigen: 0.45,
+        pdf: "ACUSTICO_11.pdf"
     },
     {
-        modelo: "ACÚSTICO 14 (50Db)",
+        modelo: "ACUSTICO_14",
         clasificacion: "Panal",
         peso: 3.70,
         unidadM2: 40,
         unidadPalet: 224,
         precioOrigen: 0.60,
+        pdf: "ACUSTICO_14.pdf"
     },
     {
-        modelo: "PANAL 190",
+        modelo: "PANAL_190",
         clasificacion: "Panal",
         peso: 9.00,
         unidadM2: 17,
@@ -433,7 +440,7 @@ const Termonieves: ProductInfo[] = [
 
 const Zunchos: ProductInfo[] = [
     {
-        modelo: "ZUNCHO 14",
+        modelo: "ZUNCHO_14",
         clasificacion: "Zunchos",
         peso: 7.50,
         unidadM2: 3,
@@ -441,7 +448,7 @@ const Zunchos: ProductInfo[] = [
         precioOrigen: 1.20,
     },
     {
-        modelo: "ZUNCHO 19",
+        modelo: "ZUNCHO_19",
         clasificacion: "Zunchos",
         peso: 8.60,
         unidadM2: 3,
@@ -449,7 +456,7 @@ const Zunchos: ProductInfo[] = [
         precioOrigen: 1.40,
     },
     {
-        modelo: "ZUNCHO 24",
+        modelo: "ZUNCHO_24",
         clasificacion: "Zunchos",
         peso: 10.60,
         unidadM2: 3,
@@ -457,7 +464,7 @@ const Zunchos: ProductInfo[] = [
         precioOrigen: 1.70,
     },
     {
-        modelo: "ZUNCHO 29",
+        modelo: "ZUNCHO_29",
         clasificacion: "Zunchos",
         peso: 11.40,
         unidadM2: 3,

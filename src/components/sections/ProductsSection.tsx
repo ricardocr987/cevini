@@ -46,7 +46,7 @@ const ProductsSection: React.FC = () => {
                   <div className="flex-1 min-w-0 p-3 md:p-4 flex flex-col">
                     <div className="flex-1">
                       <div className="flex items-start gap-2 mb-1">
-                        <h3 className="font-semibold text-sm md:text-base text-white truncate">{product.modelo}</h3>
+                        <h3 className="font-semibold text-sm md:text-base text-white truncate">{product.modelo.replace(/_/g, ' ')}</h3>
                         {product.pdf ? (
                           <a
                             href={`/media/products/pdf/${product.pdf}`}
