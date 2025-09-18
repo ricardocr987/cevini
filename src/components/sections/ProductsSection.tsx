@@ -1,11 +1,31 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Categories, categories, ProductInfo } from '@/data/Products';
 import Image from 'next/image';
 import { FileText } from 'lucide-react';
 
 const ProductsSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Bloques');
+
+  // Preload all product images in the background without blocking UI
+  useEffect(() => {
+    const preloadImages = () => {
+      // Get all products from all categories
+      const allProducts = Object.values(categories).flat();
+      
+      allProducts.forEach((product) => {
+        const imageSrc = product.clasificacion === "Bardos"
+          ? `/media/products/Bardos.jpg`
+          : `/media/products/${product.modelo}.jpg`;
+        
+        // Preload images in the background without waiting
+        const img = new window.Image();
+        img.src = imageSrc;
+      });
+    };
+    
+    preloadImages();
+  }, []);
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
@@ -75,14 +95,15 @@ const ProductsSection: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="w-[120px] md:w-[160px] relative flex-shrink-0">
+                  <div className="w-[120px] md:w-[160px] relative flex-shrink-0 overflow-hidden">
                     <Image 
                       src={product.clasificacion === "Bardos"
                         ? `/media/products/Bardos.jpg`
                         : `/media/products/${product.modelo}.jpg`}
                       alt={product.modelo}
                       fill
-                      className="rounded-r-lg object-cover"
+                      className="rounded-r-lg"
+                      sizes="(max-width: 768px) 120px, 160px"
                     />
                   </div>
                 </div>
