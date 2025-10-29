@@ -35,7 +35,7 @@ export const Video = () => {
                 disablePictureInPicture
                 controlsList="nodownload noremoteplayback nofullscreen noplaybackrate"
             >
-                <source src="/media/cevini.mp4" type="video/mp4" />
+                <source src="https://dzra86p89v41x.cloudfront.net/cevini.mp4" type="video/mp4" />
             </video>
         </div>
     );
