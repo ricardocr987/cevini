@@ -13,6 +13,11 @@ const announcements: Announcement[] = [
     date: "Diciembre 2, 2024",
     url: "/articles/subvencion-de-la-conselleria-de-innovacion-industria-comercio-y-turismo-2024",
   },
+  {
+    title: "Subvención de la Consellería de Innovación, Industria, Comercio y Turismo 2025",
+    date: "Octubre 10, 2025",
+    url: "/articles/subvencion-de-la-conselleria-de-innovacion-industria-comercio-y-turismo-2025",
+  },
 ];
 
 export const AnnouncementSection: React.FC = () => {
